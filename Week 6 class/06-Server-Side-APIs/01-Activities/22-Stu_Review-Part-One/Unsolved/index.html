@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- TODO: Why does the `<link>` to `style.css` have to come last? -->
+  <!-- By placing style.css last, you ensure that any custom styles you’ve defined in it 
+  can override styles from the Google Font and Font Awesome stylesheets if needed.-->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Git it Done</title>
+</head>
+
+<body class="flex-column min-100-vh">
+  <header class="hero">
+    <h1 class="app-title">
+      <!-- TODO: What does this `<i>` element do? Where do these classes come from? -->
+        <!-- The <i> element in this context is used to include an icon from the Font Awesome library. 
+          The classes fab and fa-github are Font Awesome classes that specify the icon to display. -->
+      <i class="fab fa-github"></i> Git it Done!
+    </h1>
+    <p>Search for a GitHub user or click on a language to see a list of repositories and how many open issues they have!
+    </p>
+  </header>
+
+
+  <main class="flex-row justify-space-between">
+    <div class="col-12 col-md-4">
+
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search By User</h3>
+        <form id="user-form" class="card-body">
+          <label class="form-label" for="username">Username</label>
+          <input name="username" id="username" type="text" autofocus="true" class="form-input" />
+          <button type="submit" class="btn">Get User</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search By Topic</h3>
+        <div id="language-buttons" class="card-body">
+          <!-- TODO: How are the `data-language` attributes being used? -->
+           <!-- The data-language attributes in the buttons are custom data attributes used to store 
+            extra information that is not directly related to the button's appearance but is relevant 
+            to its functionality. These attributes are typically used in JavaScript to add interactivity 
+            or dynamic behavior to the web page. -->
+          <button data-language="javascript" class="btn">JavaScript</button>
+          <button data-language="html" class="btn">HTML</button>
+          <button data-language="css" class="btn">CSS</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-8">
+      <h2 class="subtitle">Showing Repositories for: <span id="repo-search-term"></span></h2>
+      <!-- TODO: Why is this `<div>` empty? What goes in here? -->
+        <!-- The empty <div> with the id="repos-container" is a placeholder for dynamically generated content. 
+          It will be populated with the repositories' information retrieved from the GitHub API based on user 
+          interactions, such as searching for a user or clicking a language button. -->
+      <div id="repos-container" class="list-group"></div>
+    </div>
+  </main>
+
+  <script src="./assets/js/homepage.js"></script>
+</body>
+
+</html>
